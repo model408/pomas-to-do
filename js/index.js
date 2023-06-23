@@ -21,31 +21,20 @@ let today = new Date();
 let activeDay;
 let month = today.getMonth();
 let year = today.getFullYear();
+
 const months = [
-//   "January",
-//   "February",
-//   "March",
-//   "April",
-//   "May",
-//   "June",
-//   "July",
-//   "August",
-//   "September",
-//   "October",
-//   "November",
-//   "December",
-  "Tháng 1",
-  "Tháng 2",
-  "Tháng 3",
-  "Tháng 4",
-  "Tháng 5",
-  "Tháng 6",
-  "Tháng 7",
-  "Tháng 8",
-  "Tháng 9",
-  "Tháng 10",
-  "Tháng 11",
-  "Tháng 12",
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ];
 
 // const eventsArr = [
@@ -68,32 +57,22 @@ const months = [
 
 const eventsArr = [];
 getEvents();
+console.log(eventsArr);
 
 //function to add days in days with class day and prev-date next-date on previous month and next month days and active on today
 function initCalendar() {
-  // Ngày đầu tiên của năm
   const firstDay = new Date(year, month, 1);
-  console.log(firstDay,'firstDay');
-  const lastDay = new Date(year, month + 1, 0);        // newDate(year,month,day)
-  console.log(lastDay,'lastDay');
+  const lastDay = new Date(year, month + 1, 0);
   const prevLastDay = new Date(year, month, 0);
-  console.log(prevLastDay,'prevLastDay');
   const prevDays = prevLastDay.getDate();
-  console.log(prevDays,
-    'prevDays');
   const lastDate = lastDay.getDate();
-  console.log(lastDate,'lastDate');
   const day = firstDay.getDay();
-  console.log(day,'day');
   const nextDays = 7 - lastDay.getDay() - 1;
-  console.log(nextDays,'nextDays');
 
-  // Hiện heading top of the calendar
   date.innerHTML = months[month] + " " + year;
 
   let days = "";
 
-  // Update date top of the calendar
   for (let x = day; x > 0; x--) {
     days += `<div class="day prev-date">${prevDays - x + 1}</div>`;
   }
@@ -254,8 +233,6 @@ function gotoDate() {
 function getActiveDay(date) {
   const day = new Date(year, month, date);
   const dayName = day.toString().split(" ")[0];
-  console.log(dayName);
-  console.log(day.toString());
   eventDay.innerHTML = dayName;
   eventDate.innerHTML = date + " " + months[month] + " " + year;
 }
@@ -284,7 +261,7 @@ function updateEvents(date) {
   });
   if (events === "") {
     events = `<div class="no-event">
-            <h3>Lịch trống</h3>
+            <h3>No Events</h3>
         </div>`;
   }
   eventsContainer.innerHTML = events;
@@ -311,25 +288,25 @@ addEventTitle.addEventListener("input", (e) => {
   addEventTitle.value = addEventTitle.value.slice(0, 60);
 });
 
-// function defineProperty() {
-//   var osccred = document.createElement("div");
-//   osccred.innerHTML =
-//     "A Project By <a href='https://www.youtube.com/channel/UCiUtBDVaSmMGKxg1HYeK-BQ' target=_blank>Open Source Coding</a>";
-//   osccred.style.position = "absolute";
-//   osccred.style.bottom = "0";
-//   osccred.style.right = "0";
-//   osccred.style.fontSize = "10px";
-//   osccred.style.color = "#ccc";
-//   osccred.style.fontFamily = "sans-serif";
-//   osccred.style.padding = "5px";
-//   osccred.style.background = "#fff";
-//   osccred.style.borderTopLeftRadius = "5px";
-//   osccred.style.borderBottomRightRadius = "5px";
-//   osccred.style.boxShadow = "0 0 5px #ccc";
-//   document.body.appendChild(osccred);
-// }
+function defineProperty() {
+  var osccred = document.createElement("div");
+  osccred.innerHTML =
+    "A Project By <a href='https://www.youtube.com/channel/UCiUtBDVaSmMGKxg1HYeK-BQ' target=_blank>Open Source Coding</a>";
+  osccred.style.position = "absolute";
+  osccred.style.bottom = "0";
+  osccred.style.right = "0";
+  osccred.style.fontSize = "10px";
+  osccred.style.color = "#ccc";
+  osccred.style.fontFamily = "sans-serif";
+  osccred.style.padding = "5px";
+  osccred.style.background = "#fff";
+  osccred.style.borderTopLeftRadius = "5px";
+  osccred.style.borderBottomRightRadius = "5px";
+  osccred.style.boxShadow = "0 0 5px #ccc";
+  document.body.appendChild(osccred);
+}
 
-// defineProperty();
+defineProperty();
 
 //allow only time in eventtime from and to
 addEventFrom.addEventListener("input", (e) => {
