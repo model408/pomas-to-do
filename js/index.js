@@ -521,28 +521,36 @@ const json = {
 $('#login-logo').click(function() {
   $('.login-section').css('display','flex')
 })
+
 $('#login-btn').click(function(e) {
   e.preventDefault()
   username = $('#username').val()
   password = $('#password').val()
-  if(username == "1.quan1983.vn" && password == "pomas"){
-  $('.login-section').css('display','none')
+  if(username === ""  || password === ""){
+    $('#login-error').html('Vui lòng điền đầy đủ thông tin')
+  }else {
+      $.ajax({
+        method: "POST",
+        url: '',
+        data: {
+          username,
+          password,
+        }
+      })
+      .done(function (msg) {
+        console.log(msg);
+        $('.login-section').css('display','none')
+        $('#username').val("")
+        $('#password').val("")
+      })
+      .fail(function (jqXHR, textStatus, errorThrown) {
+        if(username == "1.quan1983.vn" && password == "pomas"){
+          $('.login-section').css('display','none')
+          $('.login-section').css('display','none')
 
+        }
+        // $('#login-error').html('Username hoặc password không đúng')
+      });
   }
-  // $.ajax({
-  //   method: "POST",
-  //   url: '',
-  //   data: {
-  //     username,
-  //     password,
-  //   }
-  // })
-  // .done(function (msg) {
-	// 	console.log(msg);
-  //   $('.login-section').css('display','none')
-	// })
-	// .fail(function (jqXHR, textStatus, errorThrown) {
-  //   console.log(textStatus);
-	// });
-  $('.login-section').css('display','none')
+  
 })
