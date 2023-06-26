@@ -11,9 +11,11 @@
     <div class="left">
       <div class="calendar">
         <div class="month">
-          <i class="fas fa-angle-left prev"></i>
+          <!-- <i class="fas fa-angle-left prev"></i> -->
+          <svg class="prev" width="25" heigth="25" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path stroke="#878895" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 4l-6 6 6 6"></path> </g></svg>
           <div class="date">december 2015</div>
-          <i class="fas fa-angle-right next"></i>
+          <!-- <i class="fas fa-angle-right next"></i> -->
+          <svg class="next" width="25" heigth="25" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path stroke="#878895" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l6-6-6-6"></path> </g></svg>
         </div>
         <div class="weekdays">
           <div>Sun</div>
@@ -42,39 +44,47 @@
       <div class="events"></div>
       <div class="add-event-wrapper">
         <div class="add-event-header">
-          <div class="title">Add Event</div>
-          <i class="fas fa-times close"></i>
+          <div class="title">Thêm sự kiện</div>
+          <!-- <i class="fas fa-times close"></i> -->
+          <svg class="close" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0,0,256,256"
+          style="fill:#000000;">
+              <g fill="#373c4f" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8.53333,8.53333)"><path d="M7,4c-0.25587,0 -0.51203,0.09747 -0.70703,0.29297l-2,2c-0.391,0.391 -0.391,1.02406 0,1.41406l7.29297,7.29297l-7.29297,7.29297c-0.391,0.391 -0.391,1.02406 0,1.41406l2,2c0.391,0.391 1.02406,0.391 1.41406,0l7.29297,-7.29297l7.29297,7.29297c0.39,0.391 1.02406,0.391 1.41406,0l2,-2c0.391,-0.391 0.391,-1.02406 0,-1.41406l-7.29297,-7.29297l7.29297,-7.29297c0.391,-0.39 0.391,-1.02406 0,-1.41406l-2,-2c-0.391,-0.391 -1.02406,-0.391 -1.41406,0l-7.29297,7.29297l-7.29297,-7.29297c-0.1955,-0.1955 -0.45116,-0.29297 -0.70703,-0.29297z"></path></g></g>
+          </svg>
         </div>
         <div class="add-event-body">
           <div class="add-event-input">
-            <input type="text" placeholder="Event Name" class="event-name" />
+            <input type="text" placeholder="Tên sự kiện" class="event-name" />
           </div>
           <div class="add-event-input">
             <input
               type="text"
-              placeholder="Event Time From"
+              placeholder="Từ:"
               class="event-time-from"
             />
           </div>
           <div class="add-event-input">
             <input
               type="text"
-              placeholder="Event Time To"
+              placeholder="Đến:"
               class="event-time-to"
             />
           </div>
         </div>
         <div class="add-event-footer">
-          <button class="add-event-btn">Add Event</button>
+          <button class="add-event-btn">Thêm</button>
         </div>
       </div>
     </div>
     <button class="add-event">
       <!-- <i class=" add-event-icon fas fa-plus"></i> -->
-      <img class="add-event-icon" src="img/plus-icon.svg" alt="plus icon" />
+      <svg class="add-event-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0,0,256,256"
+      style="fill:#000000;">
+        <g fill="#878895" fill-rule="evenodd" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(10.66667,10.66667)"><path d="M11,2v9h-9v2h9v9h2v-9h9v-2h-9v-9z"></path></g></g>
+      </svg>
     </button>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/index.js"></script>
 </body>
 </html>

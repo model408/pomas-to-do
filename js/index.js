@@ -89,7 +89,7 @@ function initCalendar() {
   const day = firstDay.getDay();
   const nextDays = 7 - lastDay.getDay() - 1;
 
-  date.innerHTML = months[month] + " " + year;
+  date.innerHTML = months[month] + "," + " " + year;
 
   let days = "";
 
@@ -291,7 +291,8 @@ function updateEvents(date) {
 }
 
 //function to add event
-addEventBtn.addEventListener("click", () => {
+addEventBtn.addEventListener("click", (e) => {
+  e.stopPropagation()
   addEventWrapper.classList.toggle("active");
   console.log('click');
 });
