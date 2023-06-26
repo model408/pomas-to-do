@@ -746,7 +746,7 @@ body {
 @media (max-width: 768px) {
 
   .login-section {
-      padding: 1rem 0 2rem 0;
+      padding: 0 0 2rem 0;
   }
 
   .login-card {
