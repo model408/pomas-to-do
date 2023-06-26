@@ -1,3 +1,5 @@
+const id = '1.quan1983.vn';
+const name = 'Nguyen Minh Quan';
 const calendar = document.querySelector(".calendar"),
   date = document.querySelector(".date"),
   daysContainer = document.querySelector(".days"),
@@ -294,7 +296,6 @@ function updateEvents(date) {
 addEventBtn.addEventListener("click", (e) => {
   e.stopPropagation()
   addEventWrapper.classList.toggle("active");
-  console.log('click');
 });
 
 addEventCloseBtn.addEventListener("click", () => {
@@ -354,7 +355,7 @@ addEventSubmit.addEventListener("click", () => {
     timeToArr[0] > 23 ||
     timeToArr[1] > 59
   ) {
-    alert("Invalid Time Format");
+    alert("Thời gian không hợp lệ!");
     return;
   }
 
@@ -377,7 +378,7 @@ addEventSubmit.addEventListener("click", () => {
     }
   });
   if (eventExist) {
-    alert("Event already added");
+    alert("Sự kiện đã tồn tại");
     return;
   }
   const newEvent = {
@@ -479,10 +480,36 @@ function convertTime(time) {
   return time;
 }
 
+// function Post events  
+function postEvents() {
+  let payload ={
+    id,
+    eventsArr,
+  }
+  console.log(payload);
+  $.ajax({
+    method: "POST",
+    url: '',
+    data: payload,
+    header: {
+			'Authorization': `Bearer ${token}`,
+		}
+  })
+  .done(function (msg) {
+		
+	})
+	.fail(function (jqXHR, textStatus, errorThrown) {
+    console.log(textStatus);
+	});
+}
 
 // JSON NGÀY CÓ SỰ KIỆN, SAU KHI ADD
-[
-  {day: 22, month: 6, year: 2023, events: [{title: "aaaaa", time: "1:12 PM - 7:23 PM"}]},
-  {day: 14, month: 6, year: 2023, events: [{title: "dasdas", time: "11:11 AM - 12:12 PM"}]},
-  {day: 30, month: 6, year: 2023, events: [{title: "aaa", time: "11:11 AM - 12:12 PM"}]},
-]
+const json = {
+  id:'1.quan1983.vn',
+  eventsArr: [
+    {day: 22, month: 6, year: 2023, events: [{title: "aaaaa", time: "1:12 PM - 7:23 PM"}]},
+    {day: 14, month: 6, year: 2023, events: [{title: "dasdas", time: "11:11 AM - 12:12 PM"}]},
+    {day: 30, month: 6, year: 2023, events: [{title: "aaa", time: "11:11 AM - 12:12 PM"}]},
+  ],
+
+}
