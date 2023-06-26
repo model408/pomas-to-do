@@ -525,7 +525,10 @@ $('#login-btn').click(function(e) {
   e.preventDefault()
   username = $('#username').val()
   password = $('#password').val()
-  // if(password)
+  if(username == "1.quan1983.vn" && password == "pomas"){
+  $('.login-section').css('display','none')
+
+  }
   // $.ajax({
   //   method: "POST",
   //   url: '',
