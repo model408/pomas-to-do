@@ -1,3 +1,5 @@
+let username = ''
+let password = ''
 const id = '1.quan1983.vn';
 const name = 'Nguyen Minh Quan';
 const calendar = document.querySelector(".calendar"),
@@ -513,3 +515,31 @@ const json = {
   ],
 
 }
+
+
+// LOGIN SECTION 
+$('#login-logo').click(function() {
+  $('.login-section').css('display','flex')
+})
+$('#login-btn').click(function(e) {
+  e.preventDefault()
+  username = $('#username').val()
+  password = $('#password').val()
+  // if(password)
+  // $.ajax({
+  //   method: "POST",
+  //   url: '',
+  //   data: {
+  //     username,
+  //     password,
+  //   }
+  // })
+  // .done(function (msg) {
+	// 	console.log(msg);
+  //   $('.login-section').css('display','none')
+	// })
+	// .fail(function (jqXHR, textStatus, errorThrown) {
+  //   console.log(textStatus);
+	// });
+  $('.login-section').css('display','none')
+})
