@@ -180,7 +180,7 @@ body {
   bottom: 10%;
   left: 50%;
   width: 75%;
-  height: 6px;
+  height: 4px;
   border-radius: 30px;
   transform: translateX(-50%);
   background-color: var(--primary-clr);
@@ -207,6 +207,7 @@ body {
   color: var(--primary-clr);
 }
 .calendar .goto-today .goto {
+  width: 65%;
   display: flex;
   align-items: center;
   border-radius: 5px;
@@ -214,7 +215,7 @@ body {
   border: 1px solid var(--primary-clr);
 }
 .calendar .goto-today .goto input {
-  width: 100%;
+  width: 75%;
   height: 30px;
   outline: none;
   border: none;
@@ -224,18 +225,20 @@ body {
   border-radius: 5px;
 }
 .calendar .goto-today button {
-  padding: 5px 10px;
+  padding: 5px 0;
   border: 1px solid var(--primary-clr);
   border-radius: 5px;
   background-color: transparent;
   cursor: pointer;
   color: var(--primary-clr);
+  width: 25%;
 }
 .calendar .goto-today button:hover {
   color: #fff;
   background-color: var(--primary-clr);
 }
 .calendar .goto-today .goto button {
+  height: 30px;
   border: none;
   border-left: 1px solid var(--primary-clr);
   border-radius: 0;

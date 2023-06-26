@@ -10,7 +10,7 @@ const calendar = document.querySelector(".calendar"),
   eventDate = document.querySelector(".event-date"),
   eventsContainer = document.querySelector(".events"),
   addEventBtn = document.querySelector(".add-event"),
-  addEventWrapper = document.querySelector(".add-event-wrapper "),
+  addEventWrapper = document.querySelector(".add-event-wrapper"),
   addEventCloseBtn = document.querySelector(".close "),
   addEventTitle = document.querySelector(".event-name "),
   addEventFrom = document.querySelector(".event-time-from "),
@@ -23,20 +23,40 @@ let month = today.getMonth();
 let year = today.getFullYear();
 
 const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
+  "Tháng 1",
+  "Tháng 2",
+  "Tháng 3",
+  "Tháng 4",
+  "Tháng 5",
+  "Tháng 6",
+  "Tháng 7",
+  "Tháng 8",
+  "Tháng 9",
+  "Tháng 10",
+  "Tháng 11",
+  "Tháng 12",
 ];
 
+function transDays(day) {
+  switch(day) {
+    case 'Mon':
+      return 'Thứ hai'
+    case 'Tue':
+      return 'Thứ ba'
+    case 'Wed':
+      return 'Thứ tư'
+    case 'Thu':
+      return 'Thứ năm'
+    case 'Fri':
+      return 'Thứ sáu'
+    case 'Sat':
+      return 'Thứ bảy'
+    case 'Sun':
+      return 'Chủ nhật'
+    default:
+      return ''
+  }
+}
 // const eventsArr = [
 //   {
 //     day: 13,
@@ -191,6 +211,7 @@ function addListner() {
   });
 }
 
+// GO TO TODAY
 todayBtn.addEventListener("click", () => {
   today = new Date();
   month = today.getMonth();
@@ -233,7 +254,8 @@ function gotoDate() {
 function getActiveDay(date) {
   const day = new Date(year, month, date);
   const dayName = day.toString().split(" ")[0];
-  eventDay.innerHTML = dayName;
+  const currentDayName = transDays(dayName)
+  eventDay.innerHTML = currentDayName;
   eventDate.innerHTML = date + " " + months[month] + " " + year;
 }
 
@@ -261,7 +283,7 @@ function updateEvents(date) {
   });
   if (events === "") {
     events = `<div class="no-event">
-            <h3>No Events</h3>
+            <h3>Chưa có sự kiện</h3>
         </div>`;
   }
   eventsContainer.innerHTML = events;
@@ -271,6 +293,7 @@ function updateEvents(date) {
 //function to add event
 addEventBtn.addEventListener("click", () => {
   addEventWrapper.classList.toggle("active");
+  console.log('click');
 });
 
 addEventCloseBtn.addEventListener("click", () => {
@@ -287,26 +310,6 @@ document.addEventListener("click", (e) => {
 addEventTitle.addEventListener("input", (e) => {
   addEventTitle.value = addEventTitle.value.slice(0, 60);
 });
-
-function defineProperty() {
-  var osccred = document.createElement("div");
-  osccred.innerHTML =
-    "A Project By <a href='https://www.youtube.com/channel/UCiUtBDVaSmMGKxg1HYeK-BQ' target=_blank>Open Source Coding</a>";
-  osccred.style.position = "absolute";
-  osccred.style.bottom = "0";
-  osccred.style.right = "0";
-  osccred.style.fontSize = "10px";
-  osccred.style.color = "#ccc";
-  osccred.style.fontFamily = "sans-serif";
-  osccred.style.padding = "5px";
-  osccred.style.background = "#fff";
-  osccred.style.borderTopLeftRadius = "5px";
-  osccred.style.borderBottomRightRadius = "5px";
-  osccred.style.boxShadow = "0 0 5px #ccc";
-  document.body.appendChild(osccred);
-}
-
-defineProperty();
 
 //allow only time in eventtime from and to
 addEventFrom.addEventListener("input", (e) => {
@@ -335,7 +338,7 @@ addEventSubmit.addEventListener("click", () => {
   const eventTimeFrom = addEventFrom.value;
   const eventTimeTo = addEventTo.value;
   if (eventTitle === "" || eventTimeFrom === "" || eventTimeTo === "") {
-    alert("Please fill all the fields");
+    alert("Vui lòng nhập đủ các trường");
     return;
   }
 
@@ -421,7 +424,7 @@ addEventSubmit.addEventListener("click", () => {
 //function to delete event when clicked on event
 eventsContainer.addEventListener("click", (e) => {
   if (e.target.classList.contains("event")) {
-    if (confirm("Are you sure you want to delete this event?")) {
+    if (confirm("Bạn muốn xóa sự kiện này?")) {
       const eventTitle = e.target.children[0].children[1].innerHTML;
       eventsArr.forEach((event) => {
         if (
@@ -474,3 +477,11 @@ function convertTime(time) {
   time = timeHour + ":" + timeMin + " " + timeFormat;
   return time;
 }
+
+
+// JSON NGÀY CÓ SỰ KIỆN, SAU KHI ADD
+[
+  {day: 22, month: 6, year: 2023, events: [{title: "aaaaa", time: "1:12 PM - 7:23 PM"}]},
+  {day: 14, month: 6, year: 2023, events: [{title: "dasdas", time: "11:11 AM - 12:12 PM"}]},
+  {day: 30, month: 6, year: 2023, events: [{title: "aaa", time: "11:11 AM - 12:12 PM"}]},
+]
