@@ -753,6 +753,9 @@ body {
       width: 300px;
       padding: 2rem;
   }
+  .login-card-container{
+    margin-top: -20px;
+  }
 
 }
 /* ---------- */
