@@ -746,15 +746,12 @@ body {
 @media (max-width: 768px) {
 
   .login-section {
-      padding: 0 0 2rem 0;
+      padding: 2rem 0;
   }
 
   .login-card {
       width: 300px;
       padding: 2rem;
-  }
-  .login-card-container{
-    margin-top: -20px;
   }
 
 }
